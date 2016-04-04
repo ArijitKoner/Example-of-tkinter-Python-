@@ -1,0 +1,46 @@
+from Tkinter import *
+import tkMessageBox
+
+
+
+class App:
+  def __init__(self, master):
+    frame = Frame(master)
+    frame.pack()
+    self.button = Button(frame, 
+                         text="OK", bg="red",
+                         command=self.write_slogan)
+    self.button.pack(side=LEFT)
+    self.button = Button(frame, 
+                         text="Original pic", bg="red",
+                         command=self.write_slogan)
+    self.button.pack(side=LEFT)
+    self.slogan = Button(frame,
+                         text="Exit",
+                         command=exit)
+    self.slogan.pack(side=LEFT)
+  def write_slogan(self):
+    print "Tkinter is easy to use!"
+
+def sel():
+   selection = "You selected the option " + str(var.get())
+   label.config(text = selection)
+
+root = Tk()
+root.title("PIC EDIT")
+mlabel= Label(text="--FLIP--")
+mlabel.pack()
+
+var = IntVar()
+R1 = Radiobutton(root, text="1. Right to left", variable=var, value=1,
+                  command=sel)
+R1.pack( anchor = W )
+
+R2 = Radiobutton(root, text="2. Up to down", variable=var, value=2,
+                  command=sel)
+R2.pack( anchor = W )
+
+label = Label(root)
+label.pack()
+app = App(root)
+root.mainloop()
